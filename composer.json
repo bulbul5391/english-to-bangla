@@ -1,0 +1,19 @@
+{
+    "name": "bulbul5391/english-to-bangla",
+    "description": "Convert any number, month and day english to bangle",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Bulbul5391\\EnglishToBangla\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "bulbul",
+            "email": "bulbulcse5310@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
