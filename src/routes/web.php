@@ -11,7 +11,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('en-to-bn', function (Request $request){
         $convert = new EnToBn();
         $formVal = $request->all();
-        $result = $convert->entoBn($formVal['userEntry'], $formVal['forConvert']);
+        $result = $convert->enToBn($formVal['userEntry'], $formVal['forConvert']);
         return view('pgNameEnToBn::check',['data' => $result, 'formVal' => $formVal]);
         return $request->all();
     });

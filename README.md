@@ -15,8 +15,24 @@
 
 
 ## ✍️ Installation
-
+```
 composer require bulbul5391/english-to-bangla
+```
+
+## 😊 Usage
+```php
+use Bulbul5391\EnglishToBangla\EnToBn;
+$convert = new EnToBn();
+
+echo $convert->enToBn(1233.77, 'w');
+Output : এক হাজার দুই শত তেত্রিশ দশমিক সাত সাত
+
+echo $convert->enToBn('January');
+Output : জানুয়ারি
+
+echo $convert->enToBn('520', 'm');
+Output : পাঁচ শত বিশ টাকা
+```
 
 ## ☑️Testing English to Bengali Translation
 - http://{{hostname}}/en-to-bn
