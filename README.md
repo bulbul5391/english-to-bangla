@@ -16,6 +16,8 @@
 
 ## ✍️ Installation
 
+composer require bulbul5391/english-to-bangla
+
 ## ☑️Testing English to Bengali Translation
 - http://{{hostname}}/en-to-bn
 
