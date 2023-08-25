@@ -19,7 +19,7 @@ class EnToBn
      * @return array|mixed|string|void
      * @throws Exception\CheckValidNumber
      */
-    function enToBn($val,$for=''){
+    function enToBn($val, $for=''){
         if($val == "" || $val == null){
             return;
         }

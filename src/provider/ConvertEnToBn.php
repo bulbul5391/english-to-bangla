@@ -161,13 +161,14 @@ class ConvertEnToBn
      * @return string
      * @throws CheckValidNumber
      */
-    public  function numberMoney($number): string
+    public  function numberMoney($number)
     {
+        $this->isValid($number);
         if($number == 0){
-            return 'শূন্য টাকা';
+            return ' শূন্য টাকা';
         }
 
-        if(is_float($number)){
+        if(is_float($number+0)){
             $money  = number_format((float)$number, 2, '.', '');
             $decimal = explode(".", $money);
             $text = $this->wordOfNumber($decimal[0]).' টাকা ';
