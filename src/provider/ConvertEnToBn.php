@@ -64,7 +64,7 @@ class ConvertEnToBn
      * @param $data
      * @return array|string
      */
-    public function translateEnToBn($data): array|string
+    public function translateEnToBn($data)
     {
         $result = '';
         if ($data == null || $data == "") {
