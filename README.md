@@ -5,11 +5,13 @@
 </p>
 
 🤗 You can easily convert such as
-- Any english numbers to bangla numbers
-- English numbers to word number
-- English numbers to decimal number
+- Any english number to bangla number
+- English number to bangla word
+- English number to decimal number
 - English month to bangla month
+- English date to bangla date
 - Your host name /eb-to-bn
+
 
 ## ✍️ Installation
 
