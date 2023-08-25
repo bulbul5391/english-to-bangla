@@ -1,8 +1,9 @@
-<h1 align="center">💞️ English to Bangla 💞️</h1>
-<p align="center"><a href="https://www.linkedin.com/in/bulbulsarker/" target="_blank">
+# 💞️ English to Bangla 💞️ 
+<p align="left"><a href="https://www.linkedin.com/in/bulbulsarker/" target="_blank">
     <img alt="Linkedin Follow" src="https://bdprescription.com/npm-package/linkedins.svg">
   </a>
 </p>
+
 
 🤗 You can easily convert such as
 - Any english number to bangla number
@@ -10,13 +11,13 @@
 - English number to decimal number
 - English month to bangla month
 - English date to bangla date
-- Your host name /eb-to-bn
+- Your host name /en-to-bn
 
 
 ## ✍️ Installation
 
 ## ☑️Testing English to Bengali Translation
-- http://{{hostname}}/eb-to-bn
+- http://{{hostname}}/en-to-bn
 
 ## ✨ Example 
 | Input | Convert For | Output |
