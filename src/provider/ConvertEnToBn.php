@@ -8,7 +8,7 @@ class ConvertEnToBn
     /**
      * @var string[]
      */
-    protected  $engVal = [
+    protected  $engDataList = [
     '1','2','3','4','5','6','7','8','9','0','-','.',
     'Saturday','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday',
     'Sat','Sun','Mon','Tue','Wed','Thu','Fri',
@@ -20,7 +20,7 @@ class ConvertEnToBn
     /**
      * @var string[]
      */
-    protected $bnVal = [
+    protected $bngDataList = [
     '১','২','৩','৪','৫','৬','৭','৮','৯','০','-','.',
     'শনিবার','রবিবার','সোমবার','মঙ্গলবার','বুধবার','বৃহস্পতিবার','শুক্রবার',
     'শনি','রবি','সোম','মঙ্গল','বুধ','বৃহঃ','শুক্র',
@@ -32,7 +32,7 @@ class ConvertEnToBn
     /**
      * @var string[]
      */
-    protected  $words = [
+    protected $bnNumbers = [
         '', 'এক', 'দুই', 'তিন', 'চার', 'পাঁচ', 'ছয়', 'সাত', 'আট', 'নয়', 'দশ',
         'এগারো', 'বারো', 'তেরো', 'চৌদ্দ', 'পনেরো', 'ষোল', 'সতেরো', 'আঠারো', 'উনিশ','বিশ',
         'একুশ', 'বাইশ', 'তেইশ', 'চব্বিশ', 'পঁচিশ', 'ছাব্বিশ', 'সাতাশ', 'আঠাশ', 'ঊনত্রিশ', 'ত্রিশ',
@@ -64,12 +64,15 @@ class ConvertEnToBn
      * @param $data
      * @return array|string
      */
-    public function convertText($data): array|string
+    public function translateEnToBn($data): array|string
     {
+        $result = '';
         if ($data == null || $data == "") {
-            return 'কোন তথ্য পাওয়া যায়নি';
+            $result = 'কোন তথ্য পাওয়া যায়নি';
         }
-        $result = str_replace($this->engVal,$this->bnVal,$data);
+        else{
+            $result = str_replace($this->engDataList,$this->bngDataList,$data);
+        }
         return $result;
     }
 
@@ -83,11 +86,11 @@ class ConvertEnToBn
             return 'শূন্য';
         }
         $arrayNumber = explode(".", $number);
-        $text = $this->toWord($arrayNumber[0]);
+        $bnText = $this->wordOfNumber($arrayNumber[0]);
         if(isset($arrayNumber[1])){
-            $text .= ' দশমিক '.$this->toDecimalWord((string)$arrayNumber[1]);
+            $bnText .= ' দশমিক '. $this->getDecimalWord((string)$arrayNumber[1]);
         }
-        return $text;
+        return $bnText;
     }
 
     /**
@@ -95,7 +98,7 @@ class ConvertEnToBn
      * @return string
      * @throws CheckValidNumber
      */
-    protected  function toWord($number): string
+    protected  function wordOfNumber($number): string
     {
         $this->isValid($number);
 
@@ -105,31 +108,31 @@ class ConvertEnToBn
             if($crore > 99){
                 $text .= $this->numberWord($crore).' কোটি ';
             }else{
-                $text .= $this->words[$crore].' কোটি ';
+                $text .= $this->bnNumbers[$crore].' কোটি ';
             }
         }
 
-        $crore_div = $number%10000000;
-        $lakh = (int) ($crore_div/100000);
-        if($lakh > 0){
-            $text .= $this->words[$lakh].' লক্ষ ';
+        $croreAmount = $number%10000000;
+        $lakhAmount = (int) ($croreAmount/100000);
+        if($lakhAmount > 0){
+            $text .= $this->bnNumbers[$lakhAmount].' লক্ষ ';
         }
 
-        $lakh_div = $crore_div%100000;
-        $thousand = (int) ($lakh_div/1000);
-        if($thousand > 0){
-            $text .= $this->words[$thousand].' হাজার ';
+        $lakhAmount_tk = $croreAmount%100000;
+        $thousandAmount = (int) ($lakhAmount_tk/1000);
+        if($thousandAmount > 0){
+            $text .= $this->bnNumbers[$thousandAmount].' হাজার ';
         }
 
-        $thousand_div = $lakh_div%1000;
-        $hundred = (int) ($thousand_div/100);
-        if($hundred > 0){
-            $text .= $this->words[$hundred].' শত ';
+        $thousandAmount_tk = $lakhAmount_tk%1000;
+        $hundredAmount = (int) ($thousandAmount_tk/100);
+        if($hundredAmount > 0){
+            $text .= $this->bnNumbers[$hundredAmount].' শত ';
         }
 
-        $hundred_div = (int) ($thousand_div%100);
-        if($hundred_div > 0){
-            $text .= $this->words[$hundred_div];
+        $hundredAmount_tk = (int) ($thousandAmount_tk%100);
+        if($hundredAmount_tk > 0){
+            $text .= $this->bnNumbers[$hundredAmount_tk];
         }
 
         return $text;
@@ -139,7 +142,7 @@ class ConvertEnToBn
      * @param $number
      * @return string
      */
-    protected function toDecimalWord($number): string
+    protected function getDecimalWord($number): string
     {
         $word = '';
         $numberLength = strlen($number);
@@ -147,7 +150,7 @@ class ConvertEnToBn
         // Loop through each digit of the number
         for ($i = 0; $i < $numberLength; $i++) {
             $digit = (int)$number[$i];
-            $word .= ' ' . $this->words[$digit];
+            $word .= ' ' . $this->bnNumbers[$digit];
         }
 
         return $word;
@@ -167,13 +170,13 @@ class ConvertEnToBn
         if(is_float($number)){
             $money  = number_format((float)$number, 2, '.', '');
             $decimal = explode(".", $money);
-            $text = $this->toWord($decimal[0]).' টাকা ';
+            $text = $this->wordOfNumber($decimal[0]).' টাকা ';
             if(isset($decimal[1])){
-                $text .= $this->words[(int)$decimal[1]].' পয়সা';
+                $text .= $this->bnNumbers[(int)$decimal[1]].' পয়সা';
             }
             return $text;
         }else{
-            return $this->toWord($number).' টাকা ';
+            return $this->wordOfNumber($number).' টাকা ';
         }
     }
 
@@ -181,7 +184,7 @@ class ConvertEnToBn
      * @param $number
      * @return string
      */
-    public function bnCommaLakh($number)
+    public function bnCommaLakh($number): string
     {
         $n = preg_replace("/(\d+?)(?=(\d\d)+(\d)(?!\d))(\.\d+)?/i", "$1,", $number);
         return strtr($n,$this->numbers);

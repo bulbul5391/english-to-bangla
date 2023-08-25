@@ -19,7 +19,7 @@ class EnToBn
      * @return array|mixed|string|void
      * @throws Exception\CheckValidNumber
      */
-    function entoBn($val,$for=''){
+    function enToBn($val,$for=''){
         if($val == "" || $val == null){
             return;
         }
@@ -44,7 +44,7 @@ class EnToBn
             return $this->convert->bnCommaLakh($val);
         }
         else{
-            return $this->convert->convertText($val);
+            return $this->convert->translateEnToBn($val);
         }
 
     }

@@ -4,11 +4,11 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware' => ['web']], function () {
 
-    Route::get('checking',function (){
+    Route::get('en-to-bn',function (){
         return view('pgNameEnToBn::check',['data'=> '']);
-    })->name('checking');
+    })->name('en-to-bn');
 
-    Route::post('checking', function (Request $request){
+    Route::post('en-to-bn', function (Request $request){
         $convert = new EnToBn();
         $formVal = $request->all();
         $result = $convert->entoBn($formVal['userEntry'], $formVal['forConvert']);

@@ -1,45 +1,36 @@
-usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
-           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
-           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
-           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
-           <command> [<args>]
+<h1 align="center">💞️ English to Bangla 💞️</h1>
+<p align="center"><a href="https://www.linkedin.com/in/bulbulsarker/" target="_blank">
+    <img alt="Linkedin Follow" src="https://bdprescription.com/npm-package/linkedins.svg">
+  </a>
+</p>
 
-These are common Git commands used in various situations:
+🤗 You can easily convert such as
+- Any english numbers to bangla numbers
+- English numbers to word number
+- English numbers to decimal number
+- English month to bangla month
+- Your host name /eb-to-bn
 
-start a working area (see also: git help tutorial)
-   clone             Clone a repository into a new directory
-   init              Create an empty Git repository or reinitialize an existing one
+## ✍️ Installation
 
-work on the current change (see also: git help everyday)
-   add               Add file contents to the index
-   mv                Move or rename a file, a directory, or a symlink
-   restore           Restore working tree files
-   rm                Remove files from the working tree and from the index
-   sparse-checkout   Initialize and modify the sparse-checkout
+## ☑️Testing English to Bengali Translation
+- http://{{hostname}}/eb-to-bn
 
-examine the history and state (see also: git help revisions)
-   bisect            Use binary search to find the commit that introduced a bug
-   diff              Show changes between commits, commit and working tree, etc
-   grep              Print lines matching a pattern
-   log               Show commit logs
-   show              Show various types of objects
-   status            Show the working tree status
+## ✨ Example 
+| Input | Convert For | Output |
+| --- | --- | --- |
+| `10510` | `null` | ১০৫১০ |
+| `10510` | `word / w` | দশ হাজার পাঁচ শত দশ |
+| `10510` | `money / m` | দশ হাজার পাঁচ শত দশ টাকা |
+| `10510` | `comma / c` | ১০,৫১০ |
+| `105.12` | `word / w` | এক শত পাঁচ দশমিক এক দুই |
+| `Friday` | `null` | শুক্রবার |
+| `Fri` | `null` | শুক্র |
+| `January / Jan` | `null` | জানুয়ারি |
+| `AM / am` | `null` | পূর্বাহ্ণ |
+| `PM / pm` | `null` | অপরাহ্ণ |
+| `01-12-2020` | `null` | ০১-১২-২০২০ |
+| `2020-12-01` | `null` | ২০২০-১২-০১ |
+| `2020/12/01` | `null` | ২০২০/১২/০১ |
 
-grow, mark and tweak your common history
-   branch            List, create, or delete branches
-   commit            Record changes to the repository
-   merge             Join two or more development histories together
-   rebase            Reapply commits on top of another base tip
-   reset             Reset current HEAD to the specified state
-   switch            Switch branches
-   tag               Create, list, delete or verify a tag object signed with GPG
-
-collaborate (see also: git help workflows)
-   fetch             Download objects and refs from another repository
-   pull              Fetch from and integrate with another repository or a local branch
-   push              Update remote refs along with associated objects
-
-'git help -a' and 'git help -g' list available subcommands and some
-concept guides. See 'git help <command>' or 'git help <concept>'
-to read about a specific subcommand or concept.
-See 'git help git' for an overview of the system.
+<h2 align="center">Thanks 🙋 </h2>
