@@ -1,6 +1,7 @@
 {
     "name": "bulbul5391/english-to-bangla",
     "description": "Convert any number, month and day english to bangle",
+    "keywords": ["laravel","english to bangla","laravel english to bangla", "laravel en to bn"],
     "type": "library",
     "license": "MIT",
     "autoload": {
