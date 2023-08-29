@@ -6,6 +6,9 @@ class EnToBnServiceProvider extends ServiceProvider
     public function boot(){
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
         $this->loadViewsFrom(__DIR__.'/resources/views', 'pgNameEnToBn');
+        $this->publishes([
+            __DIR__.'/Helpers/EnToBnHelper.php' => app_path('Helpers/EnToBnHelper.php')
+        ], 'EnToBnServiceProvider');
     }
     public function register()
     {

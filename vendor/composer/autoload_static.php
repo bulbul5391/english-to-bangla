@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitc5973dd509f6da0a6ea68d4e10edba14
 {
+    public static $files = array (
+        '00155bd24799b10c9e69f2eea29e13ee' => __DIR__ . '/../..' . '/app/Helpers/EnToBnHelper.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'B' => 
         array (
