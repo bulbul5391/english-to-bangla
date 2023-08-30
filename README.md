@@ -33,8 +33,59 @@ Output : জানুয়ারি
 echo $convert->enToBn('520', 'm');
 Output : পাঁচ শত বিশ টাকা
 ```
+## Function Call From Blade Page
+```php
+    /*---Controller---*/
+    <?php
+    use Bulbul5391\EnglishToBangla\EnToBn; 
+    class ReportController extends Controller
+    {
+        public function index(){
+            $data['Controller] = 'App\Http\Controllers\ReportController';
+            return view('report',$data);
+        }
+        public static function enToBn($val, $for=null)
+        {
+           $convert = new EnToBn();
+           return $convert->enToBn($val, $for); 
+        }
+    }
+    
+    /*---report.blade.php---*/
+    {{ $Controller::enToBn(10510) }} //Output ১০৫১০
+    {{ $Controller::enToBn(10510,'en') }} //Output 10510
+    {{ $Controller::enToBn(10510, 'w') }} //দশ হাজার পাঁচ শত দশ
+```
 
-## ☑️Testing English to Bengali Translation
+## Or You  Can Call By Helper Function From Blade Page
+```php
+    php artisan vendor:publish --tag=EnToBnServiceProvider
+    
+    //Add this line in composer.json file
+    "autoload-dev": {
+        "files": [
+            "app/Helpers/EnToBnHelper.php"
+        ]
+    }
+    
+    After Run : composer dump-autoload
+    
+    /*---Controller---*/
+    class ReportController extends Controller
+    {
+        public function index(){
+            return view('report');
+        }
+    }
+    
+    /*---report.blade.php---*/
+    {{ enToBn(22222,'c')}}
+    {{ enToBn(10510) }} //Output ১০৫১০
+    {{ enToBn(10510,'en') }} //Output 10510
+    {{ enToBn(10510, 'w') }} //দশ হাজার পাঁচ শত দশ
+```
+
+## ☑️Testing English to Bangla Translation
 - http://{{hostname}}/en-to-bn
 
 ## ✨ Example 
