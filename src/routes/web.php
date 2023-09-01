@@ -13,7 +13,10 @@ Route::group(['middleware' => ['web']], function () {
         $formVal = $request->all();
         $result = $convert->enToBn($formVal['userEntry'], $formVal['forConvert']);
         return view('pgNameEnToBn::check',['data' => $result, 'formVal' => $formVal]);
-        return $request->all();
     });
 
+});
+
+Route::get('txt',function (){
+   echo 'txtdddd';
 });
